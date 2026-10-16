@@ -13,3 +13,13 @@ SELECT p.nom       AS plat,
 FROM plat p
 JOIN categorie c ON c.id_categorie = p.id_categorie
 ORDER BY c.id_categorie, p.prix DESC;
+
+
+//Etape3
+SELECT c.id_commande, c.date_commande,
+       SUM(lc.quantite * p.prix) AS montant_total
+FROM commande c
+JOIN ligne_commande lc ON lc.id_commande = c.id_commande
+JOIN plat p ON p.id_plat = lc.id_plat
+GROUP BY c.id_commande, c.date_commande
+ORDER BY c.id_commande;

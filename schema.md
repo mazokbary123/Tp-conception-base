@@ -7,3 +7,7 @@ PLAT(**id_plat**, nom, prix, #id_categorie) (modifie)
 ## Etape3
 COMMANDE(**id_commande**, date_commande) (nouveau)
 LIGNE_COMMANDE(**#id_commande**, **#id_plat**, quantite) (nouveau)
+
+## Etape4
+CLIENT(**id_client**, nom, telephone?) (nouveau)
+COMMANDE(**id_commande**, date_commande, #id_client?) (modifie)

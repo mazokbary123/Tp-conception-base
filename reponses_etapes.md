@@ -3,3 +3,6 @@ Etape 1 : le prix en entier INTEGER, car les ariary n’ont pas de centimes, et 
 Etape 2 : Si on ajoute une colonne categorie VARCHAR(50) dans la table des plats, le nom de la categorie est recopie sur chaque ligne, donc on risque des incoherences et des doublons. Par exemple, si je tape « Plat malagasy » pour Romazava et « Plat malgache » pour Akoho sy voanio, la base considere deux categories differentes et le comptage par categorie est alors faux, et si on veut renommer « Soupe » en « Soupes », je dois modifier tous les plats concernes ; avec une table categorie et une cle etrangere, le nom est ecrit une seule fois et chaque plat y fait reference.
 
 Etape 3 : Je place la quantite dans la table d’association ligne_commande, car elle depend à la fois de la commande et du plat : une commande contient plusieurs plats et un même plat est commande en quantites differentes selon les commandes, donc elle ne peut être ni dans commande ni dans plat
+
+
+Etape 4 : Non, la cle etrangere id_client de commande n’est pas NOT NULL, car la plupart des clients sont de passage et n’ont pas de fiche. Il faut une LEFT JOIN depuis commande, car une jointure simple (JOIN) ferait disparaitre toutes les commandes sans client.

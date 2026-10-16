@@ -20,3 +20,7 @@ COMMANDE(**id_commande**, date_commande, #id_client?, #id_serveur, #id_table?) (
 ## Etape6
 MODE_PAIEMENT(**id_mode**, libelle) (nouveau)
 PAIEMENT(**id_paiement**, #id_commande, #id_mode, montant, reference?) (nouveau)
+
+## Etape7
+LIGNE_COMMANDE(**#id_commande**, **#id_plat**, quantite, prix_unitaire) (modifie)
+HISTORIQUE_PRIX(**#id_plat**, **date_debut**, prix) (nouveau)

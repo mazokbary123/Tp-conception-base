@@ -16,3 +16,7 @@ COMMANDE(**id_commande**, date_commande, #id_client?) (modifie)
 SERVEUR(**id_serveur**, nom) (nouveau)
 TABLE_SALLE(**id_table**, numero) (nouveau)
 COMMANDE(**id_commande**, date_commande, #id_client?, #id_serveur, #id_table?) (modifie)
+
+## Etape6
+MODE_PAIEMENT(**id_mode**, libelle) (nouveau)
+PAIEMENT(**id_paiement**, #id_commande, #id_mode, montant, reference?) (nouveau)

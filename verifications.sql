@@ -42,3 +42,23 @@ LEFT JOIN ligne_commande lc ON lc.id_commande = c.id_commande
 LEFT JOIN plat p            ON p.id_plat = lc.id_plat
 GROUP BY s.id_serveur, s.nom
 ORDER BY s.id_serveur;
+
+//Etape6
+WITH total AS (
+    SELECT lc.id_commande, SUM(lc.quantite * p.prix) AS montant_du
+    FROM ligne_commande lc
+    JOIN plat p ON p.id_plat = lc.id_plat
+    GROUP BY lc.id_commande
+), paye AS (
+    SELECT id_commande, SUM(montant) AS montant_paye
+    FROM paiement
+    GROUP BY id_commande
+)
+SELECT c.id_commande, c.date_commande, t.montant_du,
+       COALESCE(pa.montant_paye, 0)                AS montant_paye,
+       t.montant_du - COALESCE(pa.montant_paye, 0) AS reste_a_payer
+FROM commande c
+JOIN total t      ON t.id_commande = c.id_commande
+LEFT JOIN paye pa ON pa.id_commande = c.id_commande
+WHERE t.montant_du - COALESCE(pa.montant_paye, 0) > 0
+ORDER BY c.id_commande;

@@ -6,3 +6,5 @@ Etape 3 : Je place la quantite dans la table d’association ligne_commande, car
 
 
 Etape 4 : Non, la cle etrangere id_client de commande n’est pas NOT NULL, car la plupart des clients sont de passage et n’ont pas de fiche. Il faut une LEFT JOIN depuis commande, car une jointure simple (JOIN) ferait disparaitre toutes les commandes sans client.
+
+Etape 5 : Une table de la salle est un meuble fixe qui existe toujours (il y en a 8), alors qu’une commande est un evenement date qui se produit plusieurs fois par jour : la même table sert donc à de nombreuses commandes, et on relie les deux par une cle etrangère id_table dans commande, sans jamais les confondre en une seule table. Le nom table pose problème car c’est un mot reserve du SQL (CREATE TABLE, ALTER TABLE, DROP TABLE...), donc CREATE TABLE table (...) provoque une erreur de syntaxe, et on choisit un autre nom comme table_salle.

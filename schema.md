@@ -11,3 +11,8 @@ LIGNE_COMMANDE(**#id_commande**, **#id_plat**, quantite) (nouveau)
 ## Etape4
 CLIENT(**id_client**, nom, telephone?) (nouveau)
 COMMANDE(**id_commande**, date_commande, #id_client?) (modifie)
+
+## Etape5
+SERVEUR(**id_serveur**, nom) (nouveau)
+TABLE_SALLE(**id_table**, numero) (nouveau)
+COMMANDE(**id_commande**, date_commande, #id_client?, #id_serveur, #id_table?) (modifie)

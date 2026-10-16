@@ -1,0 +1,1 @@
+Etape 1 : le prix en entier INTEGER, car les ariary n’ont pas de centimes, et l’identifiant en cle artificielle auto-incrementee  GENERATED ALWAYS AS IDENTITY en PostgreSQL, car le nom d’un plat peut changer.

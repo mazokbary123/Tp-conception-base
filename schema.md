@@ -1,0 +1,1 @@
+PLAT(**id_plat**, nom, prix) (nouveau)
